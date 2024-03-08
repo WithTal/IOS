@@ -1,0 +1,645 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		984F15742B9A080200D593D1 /* authLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984F15732B9A080200D593D1 /* authLogin.swift */; };
+		984F15762B9A8B1C00D593D1 /* OnboardingLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984F15752B9A8B1C00D593D1 /* OnboardingLayout.swift */; };
+		984F157A2B9A9D0000D593D1 /* AuthGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984F15792B9A9D0000D593D1 /* AuthGroup.swift */; };
+		98A6C2832B993C1C00151C1C /* TalIOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98A6C2822B993C1C00151C1C /* TalIOSApp.swift */; };
+		98A6C2852B993C1C00151C1C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98A6C2842B993C1C00151C1C /* ContentView.swift */; };
+		98A6C2872B993C1E00151C1C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 98A6C2862B993C1E00151C1C /* Assets.xcassets */; };
+		98A6C28A2B993C1E00151C1C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 98A6C2892B993C1E00151C1C /* Preview Assets.xcassets */; };
+		98A6C28C2B993C1E00151C1C /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98A6C28B2B993C1E00151C1C /* Persistence.swift */; };
+		98A6C28F2B993C1E00151C1C /* TalIOS.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 98A6C28D2B993C1E00151C1C /* TalIOS.xcdatamodeld */; };
+		98A6C2992B993C1E00151C1C /* TalIOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98A6C2982B993C1E00151C1C /* TalIOSTests.swift */; };
+		98A6C2A32B993C1E00151C1C /* TalIOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98A6C2A22B993C1E00151C1C /* TalIOSUITests.swift */; };
+		98A6C2A52B993C1E00151C1C /* TalIOSUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98A6C2A42B993C1E00151C1C /* TalIOSUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		98A6C2952B993C1E00151C1C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 98A6C2772B993C1C00151C1C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 98A6C27E2B993C1C00151C1C;
+			remoteInfo = TalIOS;
+		};
+		98A6C29F2B993C1E00151C1C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 98A6C2772B993C1C00151C1C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 98A6C27E2B993C1C00151C1C;
+			remoteInfo = TalIOS;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		984F15732B9A080200D593D1 /* authLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = authLogin.swift; sourceTree = "<group>"; };
+		984F15752B9A8B1C00D593D1 /* OnboardingLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingLayout.swift; sourceTree = "<group>"; };
+		984F15792B9A9D0000D593D1 /* AuthGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthGroup.swift; sourceTree = "<group>"; };
+		98A6C27F2B993C1C00151C1C /* TalIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TalIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		98A6C2822B993C1C00151C1C /* TalIOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalIOSApp.swift; sourceTree = "<group>"; };
+		98A6C2842B993C1C00151C1C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		98A6C2862B993C1E00151C1C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		98A6C2892B993C1E00151C1C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		98A6C28B2B993C1E00151C1C /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		98A6C28E2B993C1E00151C1C /* TalIOS.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TalIOS.xcdatamodel; sourceTree = "<group>"; };
+		98A6C2942B993C1E00151C1C /* TalIOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TalIOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		98A6C2982B993C1E00151C1C /* TalIOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalIOSTests.swift; sourceTree = "<group>"; };
+		98A6C29E2B993C1E00151C1C /* TalIOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TalIOSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		98A6C2A22B993C1E00151C1C /* TalIOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalIOSUITests.swift; sourceTree = "<group>"; };
+		98A6C2A42B993C1E00151C1C /* TalIOSUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalIOSUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		98A6C27C2B993C1C00151C1C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		98A6C2912B993C1E00151C1C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		98A6C29B2B993C1E00151C1C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		984F15782B9A9CF100D593D1 /* OnboardingGroups */ = {
+			isa = PBXGroup;
+			children = (
+				984F15792B9A9D0000D593D1 /* AuthGroup.swift */,
+			);
+			path = OnboardingGroups;
+			sourceTree = "<group>";
+		};
+		98A6C2762B993C1C00151C1C = {
+			isa = PBXGroup;
+			children = (
+				98A6C2812B993C1C00151C1C /* TalIOS */,
+				98A6C2972B993C1E00151C1C /* TalIOSTests */,
+				98A6C2A12B993C1E00151C1C /* TalIOSUITests */,
+				98A6C2802B993C1C00151C1C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		98A6C2802B993C1C00151C1C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				98A6C27F2B993C1C00151C1C /* TalIOS.app */,
+				98A6C2942B993C1E00151C1C /* TalIOSTests.xctest */,
+				98A6C29E2B993C1E00151C1C /* TalIOSUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		98A6C2812B993C1C00151C1C /* TalIOS */ = {
+			isa = PBXGroup;
+			children = (
+				984F15782B9A9CF100D593D1 /* OnboardingGroups */,
+				98A6C2B32B993C4400151C1C /* Models */,
+				98A6C2B22B993C3D00151C1C /* Screens */,
+				98A6C2822B993C1C00151C1C /* TalIOSApp.swift */,
+				98A6C2842B993C1C00151C1C /* ContentView.swift */,
+				98A6C2862B993C1E00151C1C /* Assets.xcassets */,
+				98A6C28B2B993C1E00151C1C /* Persistence.swift */,
+				98A6C28D2B993C1E00151C1C /* TalIOS.xcdatamodeld */,
+				98A6C2882B993C1E00151C1C /* Preview Content */,
+			);
+			path = TalIOS;
+			sourceTree = "<group>";
+		};
+		98A6C2882B993C1E00151C1C /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				98A6C2892B993C1E00151C1C /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		98A6C2972B993C1E00151C1C /* TalIOSTests */ = {
+			isa = PBXGroup;
+			children = (
+				98A6C2982B993C1E00151C1C /* TalIOSTests.swift */,
+			);
+			path = TalIOSTests;
+			sourceTree = "<group>";
+		};
+		98A6C2A12B993C1E00151C1C /* TalIOSUITests */ = {
+			isa = PBXGroup;
+			children = (
+				98A6C2A22B993C1E00151C1C /* TalIOSUITests.swift */,
+				98A6C2A42B993C1E00151C1C /* TalIOSUITestsLaunchTests.swift */,
+			);
+			path = TalIOSUITests;
+			sourceTree = "<group>";
+		};
+		98A6C2B22B993C3D00151C1C /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				984F15732B9A080200D593D1 /* authLogin.swift */,
+				984F15752B9A8B1C00D593D1 /* OnboardingLayout.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		98A6C2B32B993C4400151C1C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		98A6C27E2B993C1C00151C1C /* TalIOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 98A6C2A82B993C1E00151C1C /* Build configuration list for PBXNativeTarget "TalIOS" */;
+			buildPhases = (
+				98A6C27B2B993C1C00151C1C /* Sources */,
+				98A6C27C2B993C1C00151C1C /* Frameworks */,
+				98A6C27D2B993C1C00151C1C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TalIOS;
+			productName = TalIOS;
+			productReference = 98A6C27F2B993C1C00151C1C /* TalIOS.app */;
+			productType = "com.apple.product-type.application";
+		};
+		98A6C2932B993C1E00151C1C /* TalIOSTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 98A6C2AB2B993C1E00151C1C /* Build configuration list for PBXNativeTarget "TalIOSTests" */;
+			buildPhases = (
+				98A6C2902B993C1E00151C1C /* Sources */,
+				98A6C2912B993C1E00151C1C /* Frameworks */,
+				98A6C2922B993C1E00151C1C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				98A6C2962B993C1E00151C1C /* PBXTargetDependency */,
+			);
+			name = TalIOSTests;
+			productName = TalIOSTests;
+			productReference = 98A6C2942B993C1E00151C1C /* TalIOSTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		98A6C29D2B993C1E00151C1C /* TalIOSUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 98A6C2AE2B993C1E00151C1C /* Build configuration list for PBXNativeTarget "TalIOSUITests" */;
+			buildPhases = (
+				98A6C29A2B993C1E00151C1C /* Sources */,
+				98A6C29B2B993C1E00151C1C /* Frameworks */,
+				98A6C29C2B993C1E00151C1C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				98A6C2A02B993C1E00151C1C /* PBXTargetDependency */,
+			);
+			name = TalIOSUITests;
+			productName = TalIOSUITests;
+			productReference = 98A6C29E2B993C1E00151C1C /* TalIOSUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		98A6C2772B993C1C00151C1C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1430;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					98A6C27E2B993C1C00151C1C = {
+						CreatedOnToolsVersion = 14.3.1;
+					};
+					98A6C2932B993C1E00151C1C = {
+						CreatedOnToolsVersion = 14.3.1;
+						TestTargetID = 98A6C27E2B993C1C00151C1C;
+					};
+					98A6C29D2B993C1E00151C1C = {
+						CreatedOnToolsVersion = 14.3.1;
+						TestTargetID = 98A6C27E2B993C1C00151C1C;
+					};
+				};
+			};
+			buildConfigurationList = 98A6C27A2B993C1C00151C1C /* Build configuration list for PBXProject "TalIOS" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 98A6C2762B993C1C00151C1C;
+			productRefGroup = 98A6C2802B993C1C00151C1C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				98A6C27E2B993C1C00151C1C /* TalIOS */,
+				98A6C2932B993C1E00151C1C /* TalIOSTests */,
+				98A6C29D2B993C1E00151C1C /* TalIOSUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		98A6C27D2B993C1C00151C1C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				98A6C28A2B993C1E00151C1C /* Preview Assets.xcassets in Resources */,
+				98A6C2872B993C1E00151C1C /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		98A6C2922B993C1E00151C1C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		98A6C29C2B993C1E00151C1C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		98A6C27B2B993C1C00151C1C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				98A6C28C2B993C1E00151C1C /* Persistence.swift in Sources */,
+				984F15742B9A080200D593D1 /* authLogin.swift in Sources */,
+				984F157A2B9A9D0000D593D1 /* AuthGroup.swift in Sources */,
+				984F15762B9A8B1C00D593D1 /* OnboardingLayout.swift in Sources */,
+				98A6C2852B993C1C00151C1C /* ContentView.swift in Sources */,
+				98A6C2832B993C1C00151C1C /* TalIOSApp.swift in Sources */,
+				98A6C28F2B993C1E00151C1C /* TalIOS.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		98A6C2902B993C1E00151C1C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				98A6C2992B993C1E00151C1C /* TalIOSTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		98A6C29A2B993C1E00151C1C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				98A6C2A52B993C1E00151C1C /* TalIOSUITestsLaunchTests.swift in Sources */,
+				98A6C2A32B993C1E00151C1C /* TalIOSUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		98A6C2962B993C1E00151C1C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 98A6C27E2B993C1C00151C1C /* TalIOS */;
+			targetProxy = 98A6C2952B993C1E00151C1C /* PBXContainerItemProxy */;
+		};
+		98A6C2A02B993C1E00151C1C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 98A6C27E2B993C1C00151C1C /* TalIOS */;
+			targetProxy = 98A6C29F2B993C1E00151C1C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		98A6C2A62B993C1E00151C1C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		98A6C2A72B993C1E00151C1C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		98A6C2A92B993C1E00151C1C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"TalIOS/Preview Content\"";
+				DEVELOPMENT_TEAM = 7G7ATN48NM;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = pablo.TalIOS;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		98A6C2AA2B993C1E00151C1C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"TalIOS/Preview Content\"";
+				DEVELOPMENT_TEAM = 7G7ATN48NM;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = pablo.TalIOS;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		98A6C2AC2B993C1E00151C1C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7G7ATN48NM;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = pablo.TalIOSTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TalIOS.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/TalIOS";
+			};
+			name = Debug;
+		};
+		98A6C2AD2B993C1E00151C1C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7G7ATN48NM;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = pablo.TalIOSTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TalIOS.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/TalIOS";
+			};
+			name = Release;
+		};
+		98A6C2AF2B993C1E00151C1C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7G7ATN48NM;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = pablo.TalIOSUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = TalIOS;
+			};
+			name = Debug;
+		};
+		98A6C2B02B993C1E00151C1C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7G7ATN48NM;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = pablo.TalIOSUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = TalIOS;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		98A6C27A2B993C1C00151C1C /* Build configuration list for PBXProject "TalIOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				98A6C2A62B993C1E00151C1C /* Debug */,
+				98A6C2A72B993C1E00151C1C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		98A6C2A82B993C1E00151C1C /* Build configuration list for PBXNativeTarget "TalIOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				98A6C2A92B993C1E00151C1C /* Debug */,
+				98A6C2AA2B993C1E00151C1C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		98A6C2AB2B993C1E00151C1C /* Build configuration list for PBXNativeTarget "TalIOSTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				98A6C2AC2B993C1E00151C1C /* Debug */,
+				98A6C2AD2B993C1E00151C1C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		98A6C2AE2B993C1E00151C1C /* Build configuration list for PBXNativeTarget "TalIOSUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				98A6C2AF2B993C1E00151C1C /* Debug */,
+				98A6C2B02B993C1E00151C1C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		98A6C28D2B993C1E00151C1C /* TalIOS.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				98A6C28E2B993C1E00151C1C /* TalIOS.xcdatamodel */,
+			);
+			currentVersion = 98A6C28E2B993C1E00151C1C /* TalIOS.xcdatamodel */;
+			path = TalIOS.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 98A6C2772B993C1C00151C1C /* Project object */;
+}

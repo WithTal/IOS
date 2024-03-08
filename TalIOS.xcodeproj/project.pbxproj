@@ -10,6 +10,7 @@
 		984F15742B9A080200D593D1 /* authLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984F15732B9A080200D593D1 /* authLogin.swift */; };
 		984F15762B9A8B1C00D593D1 /* OnboardingLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984F15752B9A8B1C00D593D1 /* OnboardingLayout.swift */; };
 		984F157A2B9A9D0000D593D1 /* AuthGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984F15792B9A9D0000D593D1 /* AuthGroup.swift */; };
+		984F157D2B9AB43500D593D1 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984F157C2B9AB43500D593D1 /* LoginViewController.swift */; };
 		98A6C2832B993C1C00151C1C /* TalIOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98A6C2822B993C1C00151C1C /* TalIOSApp.swift */; };
 		98A6C2852B993C1C00151C1C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98A6C2842B993C1C00151C1C /* ContentView.swift */; };
 		98A6C2872B993C1E00151C1C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 98A6C2862B993C1E00151C1C /* Assets.xcassets */; };
@@ -19,6 +20,7 @@
 		98A6C2992B993C1E00151C1C /* TalIOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98A6C2982B993C1E00151C1C /* TalIOSTests.swift */; };
 		98A6C2A32B993C1E00151C1C /* TalIOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98A6C2A22B993C1E00151C1C /* TalIOSUITests.swift */; };
 		98A6C2A52B993C1E00151C1C /* TalIOSUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98A6C2A42B993C1E00151C1C /* TalIOSUITestsLaunchTests.swift */; };
+		98DB7FD72B9ACA21009B1426 /* FormComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98DB7FD62B9ACA21009B1426 /* FormComponents.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +44,8 @@
 		984F15732B9A080200D593D1 /* authLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = authLogin.swift; sourceTree = "<group>"; };
 		984F15752B9A8B1C00D593D1 /* OnboardingLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingLayout.swift; sourceTree = "<group>"; };
 		984F15792B9A9D0000D593D1 /* AuthGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthGroup.swift; sourceTree = "<group>"; };
+		984F157C2B9AB43500D593D1 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		984F157E2B9AB48600D593D1 /* TalIOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TalIOS.entitlements; sourceTree = "<group>"; };
 		98A6C27F2B993C1C00151C1C /* TalIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TalIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		98A6C2822B993C1C00151C1C /* TalIOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalIOSApp.swift; sourceTree = "<group>"; };
 		98A6C2842B993C1C00151C1C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -54,6 +58,7 @@
 		98A6C29E2B993C1E00151C1C /* TalIOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TalIOSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		98A6C2A22B993C1E00151C1C /* TalIOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalIOSUITests.swift; sourceTree = "<group>"; };
 		98A6C2A42B993C1E00151C1C /* TalIOSUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalIOSUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		98DB7FD62B9ACA21009B1426 /* FormComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormComponents.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +94,14 @@
 			path = OnboardingGroups;
 			sourceTree = "<group>";
 		};
+		984F157B2B9AB42900D593D1 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				984F157C2B9AB43500D593D1 /* LoginViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
 		98A6C2762B993C1C00151C1C = {
 			isa = PBXGroup;
 			children = (
@@ -112,6 +125,9 @@
 		98A6C2812B993C1C00151C1C /* TalIOS */ = {
 			isa = PBXGroup;
 			children = (
+				98DB7FD52B9AC997009B1426 /* Components */,
+				984F157E2B9AB48600D593D1 /* TalIOS.entitlements */,
+				984F157B2B9AB42900D593D1 /* Controllers */,
 				984F15782B9A9CF100D593D1 /* OnboardingGroups */,
 				98A6C2B32B993C4400151C1C /* Models */,
 				98A6C2B22B993C3D00151C1C /* Screens */,
@@ -164,6 +180,14 @@
 			children = (
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		98DB7FD52B9AC997009B1426 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				98DB7FD62B9ACA21009B1426 /* FormComponents.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -300,6 +324,8 @@
 				984F15742B9A080200D593D1 /* authLogin.swift in Sources */,
 				984F157A2B9A9D0000D593D1 /* AuthGroup.swift in Sources */,
 				984F15762B9A8B1C00D593D1 /* OnboardingLayout.swift in Sources */,
+				984F157D2B9AB43500D593D1 /* LoginViewController.swift in Sources */,
+				98DB7FD72B9ACA21009B1426 /* FormComponents.swift in Sources */,
 				98A6C2852B993C1C00151C1C /* ContentView.swift in Sources */,
 				98A6C2832B993C1C00151C1C /* TalIOSApp.swift in Sources */,
 				98A6C28F2B993C1E00151C1C /* TalIOS.xcdatamodeld in Sources */,
@@ -458,12 +484,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = TalIOS/TalIOS.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TalIOS/Preview Content\"";
 				DEVELOPMENT_TEAM = 7G7ATN48NM;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = NSContactsUsageDescription;
+				INFOPLIST_KEY_NSContactsUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -487,12 +516,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = TalIOS/TalIOS.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TalIOS/Preview Content\"";
 				DEVELOPMENT_TEAM = 7G7ATN48NM;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = NSContactsUsageDescription;
+				INFOPLIST_KEY_NSContactsUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

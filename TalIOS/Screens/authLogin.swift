@@ -18,7 +18,7 @@ struct LoginView2: View {
         VStack {
             Spacer()
             
-            Text("Opall")
+            Text("Opal")
                 .font(.largeTitle)
                 .padding()
             

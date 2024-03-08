@@ -87,7 +87,7 @@ struct ReusablePageView<Content: View>: View {
                         .foregroundColor(Color(red: 0.8, green: 0.8, blue: 0.8)) // #cccccc
                         .padding(.bottom, 20)
                 }
-                
+                content
             
                 
                 Spacer()
@@ -102,22 +102,22 @@ struct ReusablePageView<Content: View>: View {
                         .padding(.horizontal, 32)
                         .padding(.bottom, 20)
                 }
-                else {
-                    Button("temporary", action: buttonAction)
-                        .padding()
-                        .frame(maxWidth: .infinity)
-                        .background(Color.white)
-                        .foregroundColor(.black)
-                        .cornerRadius(25)
-                        .padding(.horizontal, 32)
-                        .padding(.bottom, 20)
-                }
+//                else {
+//                    Button("temporary", action: buttonAction)
+//                        .padding()
+//                        .frame(maxWidth: .infinity)
+//                        .background(Color.white)
+//                        .foregroundColor(.black)
+//                        .cornerRadius(25)
+//                        .padding(.horizontal, 32)
+//                        .padding(.bottom, 20)
+//                }
             }
             .background(Color.black) // Set the background color of the VStack to black
             .edgesIgnoringSafeArea(.all) // Make the background ignore the safe area to extend to the edges
             .foregroundColor(.white) // Set the default text color to white inside the VStack
             .padding(.vertical, 20) // This adds vertical padding to the top and bottom inside the VStack
-            .padding(.horizontal, 20t)
+            .padding(.horizontal, 20)
             
         }
     }
@@ -132,6 +132,7 @@ enum AppScreen {
     case contacts
     case contacts2
     case secrets
+//    case contacts
     case initialApps
         
     case initialApps2
@@ -147,7 +148,7 @@ enum AppScreen {
 }
 
 struct ContentView2: View {
-    @State private var currentScreen: AppScreen = .login
+    @State private var currentScreen: AppScreen = .register
 
 //    var body: some View {
 //        VStack {
@@ -167,14 +168,16 @@ struct ContentView2: View {
     var body: some View {
             VStack {
                 switch currentScreen {
+                case .contacts:
+                    ContactsView()
                 case .login:
                     LoginView(currentScreen: $currentScreen)
                 case .register:
                     RegisterView(currentScreen: $currentScreen)
                 case .shortSurvey:
                     shortSurveyView
-                case .contacts:
-                    contactsView
+//                case .contacts:
+//                    contactsView
                 case .contacts2:
                     contacts2View
                 case .secrets:
@@ -371,3 +374,94 @@ struct ContentView2: View {
 //        }
 //    }
 //}
+
+
+
+
+
+
+
+
+
+import Contacts
+
+
+struct Contact: Identifiable {
+    let id: String
+    let name: String
+    let detail: String
+    let isFriend: Bool
+}
+
+class ContactsViewModel: ObservableObject {
+    @Published var contacts: [Contact] = []
+
+    private let store = CNContactStore()
+
+    func requestAccess() {
+        store.requestAccess(for: .contacts) { granted, error in
+            if let error = error {
+                print("Failed to request access", error)
+                return
+            }
+            if granted {
+                self.loadContacts()
+            } else {
+                print("Access denied")
+            }
+        }
+    }
+
+    func loadContacts() {
+        let keysToFetch = [CNContactGivenNameKey, CNContactFamilyNameKey, CNContactPhoneNumbersKey] as [CNKeyDescriptor]
+
+        let request = CNContactFetchRequest(keysToFetch: keysToFetch)
+        do {
+            try store.enumerateContacts(with: request, usingBlock: { (cnContact, stop) in
+                // Assume everyone is not a friend for the example
+                let contact = Contact(id: cnContact.identifier,
+                                      name: "\(cnContact.givenName) \(cnContact.familyName)",
+                                      detail: (cnContact.phoneNumbers.first?.value.stringValue) ?? "",
+                                      isFriend: false)
+                self.contacts.append(contact)
+            })
+        } catch let error {
+            print("Failed to fetch contact, error: \(error)")
+        }
+    }
+}
+
+
+struct ContactsView: View {
+    @ObservedObject var viewModel = ContactsViewModel()
+    
+    var body: some View {
+        List(viewModel.contacts) { contact in
+            HStack {
+                VStack(alignment: .leading) {
+                    Text(contact.name) // Displays the contact's name
+                        .font(.headline)
+                    Text(contact.detail) // Displays the contact's detail, e.g., phone number
+                        .font(.subheadline)
+                        .foregroundColor(.gray)
+                }
+                Spacer()
+                if contact.isFriend {
+                    Text("Friends") // This can be customized based on your logic
+                        .foregroundColor(.blue)
+                } else {
+                    Button(action: {
+                        // Define your action here
+                    }) {
+                        Text("+ Invite")
+                            .foregroundColor(.blue)
+                    }
+                }
+            }
+        }
+        .onAppear {
+            viewModel.requestAccess()
+        }
+    }
+}
+

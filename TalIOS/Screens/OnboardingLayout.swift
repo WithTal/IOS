@@ -528,46 +528,120 @@ class ContactsViewModel: ObservableObject {
     }
 }
 
+//struct ContactsView: View {
+//    @ObservedObject var viewModel = ContactsViewModel()
+//
+//    var body: some View {
+//        List(viewModel.contacts) { contact in
+//            HStack {
+//                if let imageData = contact.imageData, let uiImage = UIImage(data: imageData) {
+//                    Image(uiImage: uiImage)
+//                        .resizable()
+//                        .frame(width: 40, height: 40)
+//                        .clipShape(Circle())
+//                } else {
+//                    Image(systemName: "person.crop.circle.fill")
+//                        .resizable()
+//                        .frame(width: 40, height: 40)
+//                        .foregroundColor(.gray)
+//                }
+//                VStack(alignment: .leading) {
+//                    Text(contact.name) // Displays the contact's name
+//                        .font(.headline)
+//                    Text(contact.detail) // Displays the contact's detail, e.g., phone number
+//                        .font(.subheadline)
+//                        .foregroundColor(.gray)
+//                }
+//                Spacer()
+//                if contact.isFriend {
+//                    Text("Friends") // This can be customized based on your logic
+//                        .foregroundColor(.blue)
+//                } else {
+//                    Button(action: {
+//                        // Define your action here
+//                    }) {
+//                        Text("+ Invite")
+//                            .foregroundColor(.blue)
+//                    }
+//                }
+//            }
+//        }
+//        .onAppear {
+//            viewModel.requestAccess()
+//        }
+//    }
+//}
 struct ContactsView: View {
     @ObservedObject var viewModel = ContactsViewModel()
+    @State private var searchText = ""
     
-    var body: some View {
-        List(viewModel.contacts) { contact in
-            HStack {
-                if let imageData = contact.imageData, let uiImage = UIImage(data: imageData) {
-                    Image(uiImage: uiImage)
-                        .resizable()
-                        .frame(width: 40, height: 40)
-                        .clipShape(Circle())
-                } else {
-                    Image(systemName: "person.crop.circle.fill")
-                        .resizable()
-                        .frame(width: 40, height: 40)
-                        .foregroundColor(.gray)
-                }
-                VStack(alignment: .leading) {
-                    Text(contact.name) // Displays the contact's name
-                        .font(.headline)
-                    Text(contact.detail) // Displays the contact's detail, e.g., phone number
-                        .font(.subheadline)
-                        .foregroundColor(.gray)
-                }
-                Spacer()
-                if contact.isFriend {
-                    Text("Friends") // This can be customized based on your logic
-                        .foregroundColor(.blue)
-                } else {
-                    Button(action: {
-                        // Define your action here
-                    }) {
-                        Text("+ Invite")
-                            .foregroundColor(.blue)
-                    }
-                }
+    var filteredContacts: [Contact] {
+        if searchText.isEmpty {
+            return viewModel.contacts
+        } else {
+            return viewModel.contacts.filter { contact in
+                contact.name.localizedCaseInsensitiveContains(searchText)
             }
         }
-        .onAppear {
-            viewModel.requestAccess()
+    }
+    
+    var body: some View {
+        NavigationView {
+            ScrollView {
+                LazyVStack(spacing: 10) {  // spacing can be adjusted to create gaps
+                    ForEach(filteredContacts) { contact in
+                        HStack {
+                            if let imageData = contact.imageData, let uiImage = UIImage(data: imageData) {
+                                Image(uiImage: uiImage)
+                                    .resizable()
+                                    .frame(width: 40, height: 40)
+                                    .clipShape(Circle())
+                            } else {
+                                
+                                Image(systemName: "person.crop.circle.fill")
+                                    .resizable()
+                                    .frame(width: 40, height: 40)
+                                    .foregroundColor(.gray)
+
+                            }
+                            VStack(alignment: .leading) {
+                                Text(contact.name)
+                                    .font(.title3)
+//                                Text(contact.detail)
+                                
+                            Text("IN YOUR CONTACTS")
+                                    .font(.caption)
+                                    .foregroundColor(Color(red: 0.639, green: 0.639, blue: 0.639)) // #a3a3a3
+//                                    .padding(.top, .03)
+                            }
+                            Spacer()
+                            if contact.isFriend {
+                                Text("Friends")
+                                    .foregroundColor(.blue)
+                            } else {
+                                Button(action: {
+                                    // Define your action here
+                                }) {
+                                    Text("+ Invite")
+                                        .foregroundColor(.blue)
+                                }
+                            }
+                        }
+                        .padding()  // Add padding around the content
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .background(Color(red: 0.098, green: 0.098, blue: 0.098)) // #191919// Set the background color of the padded area to black
+                        .cornerRadius(10)  // Optional corner radius for a card-like effect
+                    }
+                }
+                .padding(.vertical)  // Add padding at the top and bottom of the ScrollView
+            }
+            .padding(.horizontal, 20)
+            .background(Color.black)  // Set the ScrollView background color to black
+            .searchable(text: $searchText)
+            .navigationTitle("Contacts")
+            .onAppear {
+                viewModel.requestAccess()
+            }
         }
     }
 }

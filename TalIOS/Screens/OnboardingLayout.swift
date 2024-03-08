@@ -381,15 +381,98 @@ struct ContentView2: View {
 
 
 
-
-
+//
+//
+//import Contacts
+//
+//
+//struct Contact: Identifiable {
+//    let id: String
+//    let name: String
+//    let detail: String
+//    let isFriend: Bool
+//}
+//
+//class ContactsViewModel: ObservableObject {
+//    @Published var contacts: [Contact] = []
+//
+//    private let store = CNContactStore()
+//
+//    func requestAccess() {
+//        store.requestAccess(for: .contacts) { granted, error in
+//            if let error = error {
+//                print("Failed to request access", error)
+//                return
+//            }
+//            if granted {
+//                self.loadContacts()
+//            } else {
+//                print("Access denied")
+//            }
+//        }
+//    }
+//
+//    func loadContacts() {
+//        let keysToFetch = [CNContactGivenNameKey, CNContactFamilyNameKey, CNContactPhoneNumbersKey] as [CNKeyDescriptor]
+//
+//        let request = CNContactFetchRequest(keysToFetch: keysToFetch)
+//        do {
+//            try store.enumerateContacts(with: request, usingBlock: { (cnContact, stop) in
+//                // Assume everyone is not a friend for the example
+//                let contact = Contact(id: cnContact.identifier,
+//                                      name: "\(cnContact.givenName) \(cnContact.familyName)",
+//                                      detail: (cnContact.phoneNumbers.first?.value.stringValue) ?? "",
+//                                      isFriend: false)
+//                self.contacts.append(contact)
+//            })
+//        } catch let error {
+//            print("Failed to fetch contact, error: \(error)")
+//        }
+//    }
+//}
+//
+//
+//struct ContactsView: View {
+//    @ObservedObject var viewModel = ContactsViewModel()
+//
+//    var body: some View {
+//        List(viewModel.contacts) { contact in
+//            HStack {
+//                VStack(alignment: .leading) {
+//                    Text(contact.name) // Displays the contact's name
+//                        .font(.headline)
+//                    Text(contact.detail) // Displays the contact's detail, e.g., phone number
+//                        .font(.subheadline)
+//                        .foregroundColor(.gray)
+//                }
+//                Spacer()
+//                if contact.isFriend {
+//                    Text("Friends") // This can be customized based on your logic
+//                        .foregroundColor(.blue)
+//                } else {
+//                    Button(action: {
+//                        // Define your action here
+//                    }) {
+//                        Text("+ Invite")
+//                            .foregroundColor(.blue)
+//                    }
+//                }
+//            }
+//        }
+//        .onAppear {
+//            viewModel.requestAccess()
+//        }
+//    }
+//}
+//
 import Contacts
-
+import SwiftUI
 
 struct Contact: Identifiable {
     let id: String
     let name: String
     let detail: String
+    let imageData: Data?
     let isFriend: Bool
 }
 
@@ -400,37 +483,50 @@ class ContactsViewModel: ObservableObject {
 
     func requestAccess() {
         store.requestAccess(for: .contacts) { granted, error in
-            if let error = error {
-                print("Failed to request access", error)
-                return
-            }
-            if granted {
-                self.loadContacts()
-            } else {
-                print("Access denied")
+            DispatchQueue.main.async {
+                if let error = error {
+                    print("Failed to request access", error)
+                    return
+                }
+                if granted {
+                    self.loadContacts()
+                } else {
+                    print("Access denied")
+                }
             }
         }
     }
 
     func loadContacts() {
-        let keysToFetch = [CNContactGivenNameKey, CNContactFamilyNameKey, CNContactPhoneNumbersKey] as [CNKeyDescriptor]
+        let keysToFetch = [
+            CNContactGivenNameKey,
+            CNContactFamilyNameKey,
+            CNContactPhoneNumbersKey,
+            CNContactImageDataKey // Include this key to fetch profile images
+        ] as [CNKeyDescriptor]
 
         let request = CNContactFetchRequest(keysToFetch: keysToFetch)
         do {
-            try store.enumerateContacts(with: request, usingBlock: { (cnContact, stop) in
+            try store.enumerateContacts(with: request) { (cnContact, stop) in
                 // Assume everyone is not a friend for the example
-                let contact = Contact(id: cnContact.identifier,
-                                      name: "\(cnContact.givenName) \(cnContact.familyName)",
-                                      detail: (cnContact.phoneNumbers.first?.value.stringValue) ?? "",
-                                      isFriend: false)
-                self.contacts.append(contact)
-            })
+                let contact = Contact(
+                    id: cnContact.identifier,
+                    name: "\(cnContact.givenName) \(cnContact.familyName)",
+                    detail: (cnContact.phoneNumbers.first?.value.stringValue) ?? "",
+                    imageData: cnContact.imageData, // Store the image data
+                    isFriend: false
+                )
+                DispatchQueue.main.async { // Ensure you update the UI on the main thread
+                    self.contacts.append(contact)
+                }
+            }
         } catch let error {
-            print("Failed to fetch contact, error: \(error)")
+            DispatchQueue.main.async {
+                print("Failed to fetch contact, error: \(error)")
+            }
         }
     }
 }
-
 
 struct ContactsView: View {
     @ObservedObject var viewModel = ContactsViewModel()
@@ -438,6 +534,17 @@ struct ContactsView: View {
     var body: some View {
         List(viewModel.contacts) { contact in
             HStack {
+                if let imageData = contact.imageData, let uiImage = UIImage(data: imageData) {
+                    Image(uiImage: uiImage)
+                        .resizable()
+                        .frame(width: 40, height: 40)
+                        .clipShape(Circle())
+                } else {
+                    Image(systemName: "person.crop.circle.fill")
+                        .resizable()
+                        .frame(width: 40, height: 40)
+                        .foregroundColor(.gray)
+                }
                 VStack(alignment: .leading) {
                     Text(contact.name) // Displays the contact's name
                         .font(.headline)
@@ -464,4 +571,3 @@ struct ContactsView: View {
         }
     }
 }
-

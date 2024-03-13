@@ -40,19 +40,6 @@ struct ReusableInputComponent: View {
                                 )
                     .foregroundColor(Color(red: 0.6, green: 0.6, blue: 0.6)) // #999999)
 
-        //            .padding(.horizontal)
-//            .cornerRadius(25)
-            
-//            .padding()
-//
-//            .cornerRadius(10)
-//
-//            .foregroundColor(Color(red: 0.6, green: 0.6, blue: 0.6)) // #999999)
-//            .overlay(
-//                RoundedRectangle(cornerRadius: 20)
-//                    .stroke(Color(red: 0.6, green: 0.6, blue: 0.6), lineWidth: 1)
-//            )
-//            .padding(.horizontal)
     }
 }
 

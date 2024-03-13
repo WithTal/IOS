@@ -10,7 +10,6 @@ import SwiftUI
 @main
 struct TalIOSApp: App {
     let persistenceController = PersistenceController.shared
-
     var body: some Scene {
         WindowGroup {
             ContentView()
@@ -18,4 +17,3 @@ struct TalIOSApp: App {
         }
     }
 }
-

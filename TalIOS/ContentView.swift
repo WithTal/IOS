@@ -16,31 +16,16 @@ struct ContentView: View {
         animation: .default)
     private var items: FetchedResults<Item>
     
+    @State private var showOnboarding = false
+
+    
     var body: some View {
-        ContentView2()
-//        NavigationView {
-//            List {
-//                ForEach(items) { item in
-//                    NavigationLink {
-//                        Text("Item at \(item.timestamp!, formatter: itemFormatter)")
-//                    } label: {
-//                        Text(item.timestamp!, formatter: itemFormatter)
-//                    }
-//                }
-//                .onDelete(perform: deleteItems)
-//            }
-//            .toolbar {
-//                ToolbarItem(placement: .navigationBarTrailing) {
-//                    EditButton()
-//                }
-//                ToolbarItem {
-//                    Button(action: addItem) {
-//                        Label("Add Item", systemImage: "plus")
-//                    }
-//                }
-//            }
-//            Text("Select an item")
-//        }
+        if showOnboarding {
+            OnboardingView(showOnboarding: $showOnboarding)
+        } else {
+            HomeView(showOnboarding: $showOnboarding)
+        }
+//        OnboardingView()
     }
 
     private func addItem() {

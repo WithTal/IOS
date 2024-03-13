@@ -137,6 +137,7 @@ enum AppScreen {
         
     case initialApps2
         
+    
     case initialApps3
         
     case explanationOfBlocks
@@ -147,8 +148,9 @@ enum AppScreen {
     // Add other cases for each screen you want to navigate through
 }
 
-struct ContentView2: View {
+struct OnboardingView: View {
     @State private var currentScreen: AppScreen = .register
+    @Binding var showOnboarding: Bool
 
 //    var body: some View {
 //        VStack {
@@ -168,28 +170,39 @@ struct ContentView2: View {
     var body: some View {
             VStack {
                 switch currentScreen {
-                case .contacts:
-                    ContactsView()
+                    
+//                    set
                 case .login:
                     LoginView(currentScreen: $currentScreen)
                 case .register:
                     RegisterView(currentScreen: $currentScreen)
+                    
+//                    set
                 case .shortSurvey:
-                    shortSurveyView
-//                case .contacts:
-//                    contactsView
+                    shortSurveyView(currentScreen: $currentScreen)
+
+//                    set
+                case .contacts:
+                    ContactsPreview(currentScreen: $currentScreen)
                 case .contacts2:
-                    contacts2View
+                    ContactsView(currentScreen: $currentScreen)
+                    
+                    
                 case .secrets:
-                    secretsView
+                    SecretQuizView(currentScreen: $currentScreen)
+                    
                 case .initialApps:
                     initialAppsView
                 case .initialApps2:
-                    initialApps2View
+                    initialApps2View(currentScreen: $currentScreen)
                 case .initialApps3:
                     initialApps3View
+                    
+                    
                 case .explanationOfBlocks:
                     explanationOfBlocksView
+                    
+                    
                 case .test:
                     TestView(currentScreen: $currentScreen)
                 }
@@ -198,68 +211,22 @@ struct ContentView2: View {
 
     
 
-       var shortSurveyView: some View {
-           ReusablePageView(
-               topText: "[Question]",
-               subTopText: "", skippable: false,
-               buttonText: "Skip",
-               buttonAction: {
-                   print("Short Survey -> Skip button pressed")
-                   currentScreen = .contacts
-               }
-           ) {
-               // Placeholder for [Options]
-               Text("[Options Content]")
-           }
-       }
+      
 
-       var contactsView: some View {
+       
+       var contacts2View: some View {
            ReusablePageView(
                topText: "Add your friends to see their screen time",
                subTopText: "You thought your screen time was bad?", skippable: false,
-               buttonText: "Add Friends",
+               buttonText: "Next",
                buttonAction: {
-                   print("Contacts -> Add Friends button pressed")
+                   print("Contacts #2 -> Next button pressed")
                    currentScreen = .contacts2
                },
                alignLeft: true
            ) {
-               // Placeholder for [Graphic of friends]
-               Text("[Graphic of friends Content]")
-           }
-       }
-
-       var contacts2View: some View {
-           ReusablePageView(
-               topText: "Add your friends to see their screen time",
-               subTopText: "?", skippable: false,
-               buttonText: "Next",
-               buttonAction: {
-                   print("Contacts #2 -> Next button pressed")
-                   currentScreen = .secrets
-               },
-               alignLeft: true
-           ) {
-               // Placeholder for Searchable scroll of contacts with emojis
-               Text("Searchable scroll of contacts with emojis Content")
-           }
-       }
-
-       var secretsView: some View {
-           ReusablePageView(
-               topText: "Add embarrassing messages",
-               subTopText: "If you miss your goals, we’ll send them to your friends 🙂",
-               skippable: true,
-               buttonText: "Next",
-               buttonAction: {
-                   print("Secrets -> Next button pressed")
-                   currentScreen = .initialApps
-               },
-               alignLeft: true
-               
-           ) {
-               // Placeholder for List of secrets to add and default ones
-               Text("List of secrets to add and default ones Content")
+                              // Placeholder for Searchable scroll of contacts with emojis
+               Text("Content")
            }
        }
 
@@ -278,17 +245,6 @@ struct ContentView2: View {
            }
        }
 
-       var initialApps2View: some View {
-           // Since the prompt states NA, you may not need an action or button here, assuming this is a transitional view
-           Text("The swift selection interface Content")
-               .onAppear {
-                   // Auto-navigate after some task is done, if needed
-                   DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-                       print("Initial Apps 2 -> Auto-navigate")
-                       currentScreen = .initialApps3
-                   }
-               }
-       }
 
        var initialApps3View: some View {
            ReusablePageView(
@@ -312,6 +268,8 @@ struct ContentView2: View {
                buttonText: "All set!",
                buttonAction: {
                    print("Explanation of Blocks -> All set button pressed")
+                   showOnboarding = false
+
                    // Navigate to the next screen or dismiss
                }
            ) {
@@ -465,183 +423,3 @@ struct ContentView2: View {
 //    }
 //}
 //
-import Contacts
-import SwiftUI
-
-struct Contact: Identifiable {
-    let id: String
-    let name: String
-    let detail: String
-    let imageData: Data?
-    let isFriend: Bool
-}
-
-class ContactsViewModel: ObservableObject {
-    @Published var contacts: [Contact] = []
-
-    private let store = CNContactStore()
-
-    func requestAccess() {
-        store.requestAccess(for: .contacts) { granted, error in
-            DispatchQueue.main.async {
-                if let error = error {
-                    print("Failed to request access", error)
-                    return
-                }
-                if granted {
-                    self.loadContacts()
-                } else {
-                    print("Access denied")
-                }
-            }
-        }
-    }
-
-    func loadContacts() {
-        let keysToFetch = [
-            CNContactGivenNameKey,
-            CNContactFamilyNameKey,
-            CNContactPhoneNumbersKey,
-            CNContactImageDataKey // Include this key to fetch profile images
-        ] as [CNKeyDescriptor]
-
-        let request = CNContactFetchRequest(keysToFetch: keysToFetch)
-        do {
-            try store.enumerateContacts(with: request) { (cnContact, stop) in
-                // Assume everyone is not a friend for the example
-                let contact = Contact(
-                    id: cnContact.identifier,
-                    name: "\(cnContact.givenName) \(cnContact.familyName)",
-                    detail: (cnContact.phoneNumbers.first?.value.stringValue) ?? "",
-                    imageData: cnContact.imageData, // Store the image data
-                    isFriend: false
-                )
-                DispatchQueue.main.async { // Ensure you update the UI on the main thread
-                    self.contacts.append(contact)
-                }
-            }
-        } catch let error {
-            DispatchQueue.main.async {
-                print("Failed to fetch contact, error: \(error)")
-            }
-        }
-    }
-}
-
-//struct ContactsView: View {
-//    @ObservedObject var viewModel = ContactsViewModel()
-//
-//    var body: some View {
-//        List(viewModel.contacts) { contact in
-//            HStack {
-//                if let imageData = contact.imageData, let uiImage = UIImage(data: imageData) {
-//                    Image(uiImage: uiImage)
-//                        .resizable()
-//                        .frame(width: 40, height: 40)
-//                        .clipShape(Circle())
-//                } else {
-//                    Image(systemName: "person.crop.circle.fill")
-//                        .resizable()
-//                        .frame(width: 40, height: 40)
-//                        .foregroundColor(.gray)
-//                }
-//                VStack(alignment: .leading) {
-//                    Text(contact.name) // Displays the contact's name
-//                        .font(.headline)
-//                    Text(contact.detail) // Displays the contact's detail, e.g., phone number
-//                        .font(.subheadline)
-//                        .foregroundColor(.gray)
-//                }
-//                Spacer()
-//                if contact.isFriend {
-//                    Text("Friends") // This can be customized based on your logic
-//                        .foregroundColor(.blue)
-//                } else {
-//                    Button(action: {
-//                        // Define your action here
-//                    }) {
-//                        Text("+ Invite")
-//                            .foregroundColor(.blue)
-//                    }
-//                }
-//            }
-//        }
-//        .onAppear {
-//            viewModel.requestAccess()
-//        }
-//    }
-//}
-struct ContactsView: View {
-    @ObservedObject var viewModel = ContactsViewModel()
-    @State private var searchText = ""
-    
-    var filteredContacts: [Contact] {
-        if searchText.isEmpty {
-            return viewModel.contacts
-        } else {
-            return viewModel.contacts.filter { contact in
-                contact.name.localizedCaseInsensitiveContains(searchText)
-            }
-        }
-    }
-    
-    var body: some View {
-        NavigationView {
-            ScrollView {
-                LazyVStack(spacing: 10) {  // spacing can be adjusted to create gaps
-                    ForEach(filteredContacts) { contact in
-                        HStack {
-                            if let imageData = contact.imageData, let uiImage = UIImage(data: imageData) {
-                                Image(uiImage: uiImage)
-                                    .resizable()
-                                    .frame(width: 40, height: 40)
-                                    .clipShape(Circle())
-                            } else {
-                                
-                                Image(systemName: "person.crop.circle.fill")
-                                    .resizable()
-                                    .frame(width: 40, height: 40)
-                                    .foregroundColor(.gray)
-
-                            }
-                            VStack(alignment: .leading) {
-                                Text(contact.name)
-                                    .font(.title3)
-//                                Text(contact.detail)
-                                
-                            Text("IN YOUR CONTACTS")
-                                    .font(.caption)
-                                    .foregroundColor(Color(red: 0.639, green: 0.639, blue: 0.639)) // #a3a3a3
-//                                    .padding(.top, .03)
-                            }
-                            Spacer()
-                            if contact.isFriend {
-                                Text("Friends")
-                                    .foregroundColor(.blue)
-                            } else {
-                                Button(action: {
-                                    // Define your action here
-                                }) {
-                                    Text("+ Invite")
-                                        .foregroundColor(.blue)
-                                }
-                            }
-                        }
-                        .padding()  // Add padding around the content
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .background(Color(red: 0.098, green: 0.098, blue: 0.098)) // #191919// Set the background color of the padded area to black
-                        .cornerRadius(10)  // Optional corner radius for a card-like effect
-                    }
-                }
-                .padding(.vertical)  // Add padding at the top and bottom of the ScrollView
-            }
-            .padding(.horizontal, 20)
-            .background(Color.black)  // Set the ScrollView background color to black
-            .searchable(text: $searchText)
-            .navigationTitle("Contacts")
-            .onAppear {
-                viewModel.requestAccess()
-            }
-        }
-    }
-}

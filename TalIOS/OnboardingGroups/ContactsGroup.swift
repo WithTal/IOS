@@ -93,8 +93,13 @@ struct ContactsPreview: View {
             },
             alignLeft: true
         ) {
+            Image("faces") // Replace "imageName" with the name of your image in the assets folder
+                .resizable() // Make the image resizable
+                .scaledToFit() // Maintain the aspect ratio of the image
+                .frame(maxWidth: .infinity) // Set the image's width to the maximum available width
+
+
             // Placeholder for [Graphic of friends]
-            Text("[Graphic of friends Content]")
         }
     }
 }
@@ -140,24 +145,25 @@ struct ContactsView: View {
 //    }
     
     var body: some View {
-        NavigationView {
-            ScrollView {
-                LazyVStack(spacing: 10) {
-                    Button("Next", action: {
-                        print("Contacts -> Add Friends button pressed")
-                        currentScreen = .secrets
-                    })
-                        .padding()
-                        .frame(maxWidth: .infinity)
-                        .background(Color.white)
-                        .foregroundColor(.black)
-                        .cornerRadius(25)
-                        .padding(.horizontal, 32)
-                        .padding(.bottom, 20)
-                    // spacing can be adjusted to create gaps
-                    ForEach(filteredContacts) { contact in
-                        
-//                        if (contact.name!==""){
+        VStack {
+            
+            HStack {
+                Spacer()
+                
+                // Check if nextSkip is true; if yes, display "Next", else "Skip"
+                Text("Next")
+                    .padding([.trailing]) // Updated padding to .trailing
+                    .foregroundColor(Color(red: 0.4, green: 0.4, blue: 0.9)) // #666666
+                    .onTapGesture {
+                        currentScreen = .secrets // Trigger the provided button action when tapped
+                    }
+
+            }
+            NavigationView {
+                ScrollView {
+                    LazyVStack(spacing: 10) {
+                        ForEach(filteredContacts) { contact in
+                            
                             HStack {
                                 if let imageData = contact.imageData, let uiImage = UIImage(data: imageData) {
                                     Image(uiImage: uiImage)
@@ -192,6 +198,8 @@ struct ContactsView: View {
                                     }) {
                                         Image(systemName: contact.isSelected ? "checkmark.circle.fill" : "plus.circle")
                                             .foregroundColor(contact.isSelected ? .green : .blue)
+                                            .scaleEffect(1.2) // This will double the size of the image
+
                                     }
                                 }
                             }
@@ -200,17 +208,22 @@ struct ContactsView: View {
                             .background(Color(red: 0.098, green: 0.098, blue: 0.098)) // #191919// Set the background color of the padded area to black
                             .cornerRadius(10)  // Optional corner radius for a card-like effect
                         }
-//                    }
+                        //                    }
+                    }
+                    .padding(.vertical)  // Add padding at the top and bottom of the ScrollView
                 }
-                .padding(.vertical)  // Add padding at the top and bottom of the ScrollView
+                .padding(.horizontal, 20)
+
+                .background(Color.black)  // Set the ScrollView background color to black
+                .searchable(text: $searchText)
+                .navigationTitle("Contacts")
+                .onAppear {
+                    viewModel.requestAccess()
+                }
             }
-            .padding(.horizontal, 20)
-            .background(Color.black)  // Set the ScrollView background color to black
-            .searchable(text: $searchText)
-            .navigationTitle("Contacts")
-            .onAppear {
-                viewModel.requestAccess()
-            }
+
         }
+        .padding(.vertical, 20) // This adds vertical padding to the top and bottom inside the VStack
+
     }
 }

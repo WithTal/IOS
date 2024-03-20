@@ -7,11 +7,15 @@
 
 import Foundation
 import SwiftUI
+import FamilyControls
+
 
 
 struct shortSurveyView: View {
     @Binding var currentScreen: AppScreen
     @State private var questionIndex = 0
+    
+    
 
     // Define your questions and options
     let questions = [
@@ -56,7 +60,9 @@ struct shortSurveyView: View {
                 }) {
                     Text(option)
                         .frame(maxWidth: .infinity) // Make the Text fill the button's frame
-                    .padding()}
+                    
+                    
+                }
                 .padding()
                 .frame(maxWidth: .infinity)
                 .background(Color(red: 0.098, green: 0.098, blue: 0.098) )

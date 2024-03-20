@@ -56,62 +56,62 @@ struct LoginView:  View {
                     currentScreen = .shortSurvey
                     print("Button tapped!")
                 }
-                    .padding()
-                    .frame(maxWidth: .infinity)
-                    .background(Color.white)
-                    .foregroundColor(.black)
-                    .cornerRadius(25)
-//                    .padding(.horizontal, 32)
-//                    .padding(.bottom, 20)
+                .padding()
+                .frame(maxWidth: .infinity)
+                .background(Color.white)
+                .foregroundColor(.black)
+                .cornerRadius(25)
+                //                    .padding(.horizontal, 32)
+                //                    .padding(.bottom, 20)
                 
                 DividerWithText(text: "or")
                     .padding()
                 
                 Button(action: {
-                            print("Sign in with Apple")
-                        }) {
-                            HStack {
-                                Image(systemName: "apple.logo") // SF Symbols icon
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fit)
-                                    .frame(height: 20) // Adjust the size as needed
-                                Text("Sign In with Apple")
-                            }
-                        }
+                    print("Sign in with Apple")
+                }) {
+                    HStack {
+                        Image(systemName: "apple.logo") // SF Symbols icon
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(height: 20) // Adjust the size as needed
+                        Text("Sign In with Apple")
+                    }
+                }
                 
                 
-//                Button("Sign In with Apple") {
-//                    print("Button tapped!")
-//                }
-                    .padding()
-                    .frame(maxWidth: .infinity)
-                    .background(Color(red: 0.098, green: 0.098, blue: 0.098) )
-                    .foregroundColor(.white)
-                    .cornerRadius(25)
-//                    .padding(.horizontal, 32)
-//                    .padding(.bottom, 20)
+                //                Button("Sign In with Apple") {
+                //                    print("Button tapped!")
+                //                }
+                .padding()
+                .frame(maxWidth: .infinity)
+                .background(Color(red: 0.098, green: 0.098, blue: 0.098) )
+                .foregroundColor(.white)
+                .cornerRadius(25)
+                //                    .padding(.horizontal, 32)
+                //                    .padding(.bottom, 20)
                 
                 Button(action: {
-                            print("Sign In with Phone")
-                        }) {
-                            HStack {
-                                Image(systemName: "phone.fill") // SF Symbols icon
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fit)
-                                    .frame(height: 20) // Adjust the size as needed
-                                Text("Sign In with Phone")
-                            }
-                        }
+                    print("Sign In with Phone")
+                }) {
+                    HStack {
+                        Image(systemName: "phone.fill") // SF Symbols icon
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(height: 20) // Adjust the size as needed
+                        Text("Sign In with Phone")
+                    }
+                }
                 
                 
-                    .padding()
-                    .frame(maxWidth: .infinity)
-                    .background(Color(red: 0.098, green: 0.098, blue: 0.098) )
-                    .foregroundColor(.white)
-                    .cornerRadius(25)
-//                    .padding(.horizontal, 32)
-//                    .padding(.bottom, 20)
-
+                .padding()
+                .frame(maxWidth: .infinity)
+                .background(Color(red: 0.098, green: 0.098, blue: 0.098) )
+                .foregroundColor(.white)
+                .cornerRadius(25)
+                //                    .padding(.horizontal, 32)
+                //                    .padding(.bottom, 20)
+                
                 Button("Don't have an account?"){
                     print("REGISTER SCREEN")
                     currentScreen = .register
@@ -119,10 +119,18 @@ struct LoginView:  View {
             }
             
             // Placeholder for Sign in Functionality
-//            Text("Sign in Functionality Content")
+            //            Text("Sign in Functionality Content")
+            
+        }        .onAppear {
+            // Call the function to apply the shield here
+            applyShields()
             
         }
+
+        
+
     }
+
 }
 
 

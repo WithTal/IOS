@@ -17,12 +17,13 @@ struct SecretQuizView: View {
             topText: "Add embarrassing messages",
             subTopText: "If you miss your goals, we’ll send them to your friends 🙂",
             skippable: true,
-            buttonText: "Next",
+            nextSkip: true,
+        
             buttonAction: {
                 print("Secrets -> Next button pressed")
                 currentScreen = .initialApps
             },
-            alignLeft: true
+            alignLeft:  true
             
         ) {
             SecretsView()
@@ -31,6 +32,19 @@ struct SecretQuizView: View {
         }
     }
 }
+
+struct ShakeEffect: GeometryEffect {
+    var amount: CGFloat
+    var shakesPerUnit: CGFloat
+    var animatableData: CGFloat
+
+    func effectValue(size: CGSize) -> ProjectionTransform {
+        ProjectionTransform(CGAffineTransform(translationX: amount * sin(animatableData * .pi * shakesPerUnit), y: 0))
+    }
+}
+
+
+
 
 struct Secret: Identifiable, Hashable {
     let id = UUID()
@@ -49,13 +63,13 @@ class SecretsViewModel: ObservableObject {
 
     func addSecret(_ secretContent: String) {
         let newSecret = Secret(content: secretContent)
-        secrets.append(newSecret)
+        secrets.insert(newSecret, at: 0)
     }
 }
 
 extension SecretsViewModel {
     func addRandomSecret() {
-        let randomSecrets = ["Secret A", "Secret B", "Secret C", "Secret D"] // Example secrets
+        let randomSecrets = ["I'm a Trump supporter", "I dislike peanut butter", "ChatGPT is my therapist", "I sleep in"] // Example secrets
         let randomIndex = Int.random(in: 0..<randomSecrets.count)
         addSecret(randomSecrets[randomIndex])
     }
@@ -70,27 +84,60 @@ extension SecretsViewModel {
 struct SecretsView: View {
     @StateObject var viewModel = SecretsViewModel()
     @State private var newSecretText: String = ""
+    @State private var shake: Int = 0
 
     var body: some View {
         VStack(spacing: 10) {
             // ReusableInputComponent for new secret input
             ReusableInputComponent(text: $newSecretText, placeholder: "Enter a new secret")
-            Button("Add Secret") {
-                viewModel.addSecret(newSecretText)
-                newSecretText = ""
+                .modifier(ShakeEffect(amount: 10, shakesPerUnit: 3, animatableData: CGFloat(shake)))
+
+            HStack {
+                Button(action: {
+                    if newSecretText.isEmpty {
+                        withAnimation(.default) {
+                            shake += 1
+                        }
+                    } else {
+                        viewModel.addSecret(newSecretText)
+                        newSecretText = ""
+                    }
+                }) {
+                    HStack {
+                        Image(systemName: "lock.fill") // Icon for the "New Secret" button
+                        Text("New Secret")
+                    }
+                    .padding()
+                }
+                .frame(maxWidth: .infinity)
+                .background(Color.white)
+                .foregroundColor(.black)
+                .cornerRadius(10)
+
+                Button(action: {
+                    viewModel.addRandomSecret()
+                }) {
+                    HStack {
+                        Image(systemName: "shuffle") // Icon for the "Random" button
+                        Text("Random")
+                    }
+                    .padding()
+                }
+                .frame(maxWidth: .infinity)
+                .background(Color.white)
+                .foregroundColor(.black)
+                .cornerRadius(10)
             }
-            .padding()
-            .frame(maxWidth: .infinity)
-            .background(Color.black)
-            .foregroundColor(.white)
-            .cornerRadius(10)
+
+           
+            
+            
+            
 
             DividerWithText(text: "Your Secrets")
                 .padding(.vertical)
 
-            Button("Add Random Secret") {
-                viewModel.addRandomSecret()
-            }
+            
 //            .buttonStyle()
             // Style the button as per your preference
 
@@ -108,7 +155,7 @@ struct SecretsView: View {
             }
             .listStyle(PlainListStyle())
         }
-        .padding()
+        .padding(.vertical)
         .background(Color.black.edgesIgnoringSafeArea(.all))
     }
 }

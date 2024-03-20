@@ -14,6 +14,7 @@ struct ReusablePageView<Content: View>: View {
     let topText: String
     let subTopText: String
     let skippable: Bool
+    var nextSkip: Bool?
     var buttonText: String?
     var buttonAction: () -> Void // Closure type for button action
     var logo: Bool?
@@ -29,8 +30,13 @@ struct ReusablePageView<Content: View>: View {
                     HStack {
                         Spacer()
                         
-                        Text("Skip").padding([.leading])
-                            .foregroundColor(Color(red: 0.4, green: 0.4, blue: 0.4)) // #666666)
+                        // Check if nextSkip is true; if yes, display "Next", else "Skip"
+                        Text(nextSkip == true ? "Next" : "Skip")
+                            .padding([.trailing]) // Updated padding to .trailing
+                            .foregroundColor(nextSkip == true ?  Color(red: 0.4, green: 0.4, blue: 0.9) : Color(red: 0.4, green: 0.4, blue: 0.4)) // #666666
+                            .onTapGesture {
+                                buttonAction() // Trigger the provided button action when tapped
+                            }
                     }
                     
                     
@@ -234,14 +240,19 @@ struct OnboardingView: View {
            ReusablePageView(
                topText: "Now let's get focused",
                subTopText: "Select up to 5 distracting apps and we'll block them", skippable: false,
-               buttonText: "Next",
+               buttonText: "Select Apps",
                buttonAction: {
                    print("Initial Apps -> Next button pressed")
                    currentScreen = .initialApps2
-               }
+               },
+               alignLeft: true
            ) {
                // Placeholder for [Graphic of distracting apps]
-               Text("[Graphic of distracting apps Content]")
+               Image("apps") // Replace "imageName" with the name of your image in the assets folder
+                   .resizable() // Make the image resizable
+                   .scaledToFit() // Maintain the aspect ratio of the image
+                   .frame(maxWidth: .infinity) // Set the image's width to the maximum available width
+
            }
        }
 
@@ -274,7 +285,7 @@ struct OnboardingView: View {
                }
            ) {
                // Placeholder for screen time pause explanation
-               Text("Explain screen time pause levels Content")
+               Text("Explanation will go here (likely in graphic format)")
            }
        }
 

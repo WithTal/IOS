@@ -32,50 +32,60 @@ struct initialApps2View: View {
 
     @Binding var currentScreen: AppScreen
 
- 
+    
+
        
-            
+    @State private var isDiscouragedPresented = true
+//    @State private var isEncouragedPresented = false
+    
+    @EnvironmentObject var model: MyModel
+
             
             
     var body: some View {
         VStack {
-            
             HStack {
                 Spacer()
                 Button {
                     currentScreen = .explanationOfBlocks
-//                    print("Button pressed")
+                    //                    print("Button pressed")
                 } label: {
-                    Text("Next").padding([.leading])
-                                .foregroundColor(.blue)
+                    Text("Next").padding([.trailing])
+                        .foregroundColor(.blue)
                 }
-
-                
-                
-              // #666666)
             }
             
-//            Image(systemName: "eye")
-//                .font(.system(size: 76.0))
-//                .padding()
+//            Button {
+//                 isDiscouragedPresented = true
+//                //                    print("Button pressed")
+//            } label: {
+//                Text("Next").padding([.trailing])
+//                    .foregroundColor(.blue)
+//            }
+//            .familyActivityPicker(isPresented: $isDiscouragedPresented, selection: $model.selectionToDiscourage)
 
-            FamilyActivityPicker(selection: $selection)
 
-
-//            Image(systemName: "hourglass")
-//                .font(.system(size: 76.0))
-//                .padding()
+            FamilyActivityPicker(selection:  $model.selectionToDiscourage)
+            
+            
+            //            Image(systemName: "hourglass")
+            //                .font(.system(size: 76.0))
+            //                .padding()
         }
         .edgesIgnoringSafeArea(.all) // Make the background ignore the safe area to extend to the edges
         .foregroundColor(.white) // Set the default text color to white inside the VStack
         .padding(.vertical, 20) // This adds vertical padding to the top and bottom inside the VStack
-        .padding(.horizontal, 20)
-
-        .onChange(of: selection) { newSelection in
-            let applications = selection.applications
-            let categories = selection.categories
-            let webDomains = selection.webDomains
+        //        .padding(.horizontal, 20)
+        .onChange(of: model.selectionToDiscourage) { newSelection in
+            MyModel.shared.setShieldRestrictions()
         }
-    }
+    
+
+//        .onChange(of: selection) { newSelection in
+//            let applications = selection.applications
+//            let categories = selection.categories
+//            let webDomains = selection.webDomains
+        }
+    
 }
 

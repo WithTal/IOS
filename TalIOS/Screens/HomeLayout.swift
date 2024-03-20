@@ -116,6 +116,8 @@ struct ReusableHomeView<Content: View>: View {
 //    var buttonAction: () -> Void // Closure type for button action
     var logo: Bool?
     var alignLeft: Bool?
+    @State private var sheetHeight: CGFloat = .zero
+
     @ViewBuilder let content: Content
     
     var body: some View {
@@ -144,17 +146,13 @@ struct ReusableHomeView<Content: View>: View {
                     }
                     .sheet(isPresented: $showSheet) {
                         NewBlockView()
-                        // Your sheet content here
-                       
-                    }
-                    // Style your button here
-                }
-                // Main action button
-//                if let text = buttonText {
-//                    ActionButton(text: text, action: buttonAction).fontWeight(.bold)
-//                }
+                            .padding()
+                            .presentationDetents([.height(600), .large]) // Define the detents you want
 
-                // Bottom Navigation Tabs
+                    }
+                    
+                }
+                
                 BottomNavigationTabs(selectedTab: screenIdx, currentScreen: $currentScreen)
             }
             .background(Color.black)
@@ -166,6 +164,21 @@ struct ReusableHomeView<Content: View>: View {
     }
 
 }
+struct GetHeightModifier: ViewModifier {
+    @Binding var height: CGFloat
+
+    func body(content: Content) -> some View {
+        content.background(
+            GeometryReader { geo -> Color in
+                DispatchQueue.main.async {
+                    height = geo.size.height
+                }
+                return Color.clear
+            }
+        )
+    }
+}
+
 
 
 // Skip Button View
@@ -238,6 +251,7 @@ struct ActionButton: View {
 struct BottomNavigationTabs: View {
     let selectedTab: Int
     @Binding var currentScreen: HomeScreen
+    @State private var showingSettings = false // State to control the sheet presentation
 //    @Binding var selectedTab: Int
 
     var body: some View {
@@ -274,7 +288,7 @@ struct BottomNavigationTabs: View {
 
             Button(action: {
 //                selectedTab = 2
-                currentScreen = .profile
+                showingSettings = true
             }) {
                 VStack {
                     Image(systemName: "person.fill")
@@ -287,9 +301,79 @@ struct BottomNavigationTabs: View {
         }
         .padding()
         .cornerRadius(25)
+      .sheet(isPresented: $showingSettings) {
+          DraftSettingsView()
+      }
     }
 }
-
+struct DraftSettingsView: View {
+    @Environment(\.dismiss) var dismiss // For dismissing the sheet
+    
+    
+    var body: some View {
+        NavigationView {
+            List {
+                Section(header: Text("Subscription")) {
+                    HStack {
+                        Text("Free Plan")
+                        Spacer()
+                        Button("Subscribe to Pro") {
+                            // Action for Subscribe to Pro
+                        }
+                        .buttonStyle(.borderedProminent)
+                    }
+                    Button("Gift Free Subscription") {
+                        // Action for Gift Free Subscription
+                    }
+                }
+                
+                Section(header: Text("Account")) {
+                    NavigationLink(destination: Text("Profile Photo")) {
+                        HStack {
+                            Image(systemName: "person.crop.circle")
+                            Text("Profile Photo")
+                        }
+                    }
+                    NavigationLink(destination: Text("Gem Name")) {
+                        HStack {
+                            Image(systemName: "gem")
+                            Text("Gem Name")
+                            Spacer()
+                            Text("CoralPargarsite600")
+                                .foregroundColor(.gray)
+                        }
+                    }
+                    NavigationLink(destination: Text("Email")) {
+                        HStack {
+                            Image(systemName: "envelope")
+                            Text("Email")
+                            Spacer()
+                            Text("pablofsanchez@gmail.com")
+                                .foregroundColor(.gray)
+                        }
+                    }
+                    // ... other account options
+                }
+                
+                Section(header: Text("Preferences")) {
+                    Toggle("Notifications", isOn: .constant(true))
+                }
+            }
+            
+            
+            .listStyle(InsetGroupedListStyle())
+            .navigationTitle("Settings")
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button("Close") {
+                        dismiss() // Dismiss the sheet
+                    }
+                }
+            }
+        }
+        
+    }
+}
 
 enum HomeScreen {
     case home
@@ -302,6 +386,7 @@ enum HomeScreen {
 struct HomeView: View {
     @State private var currentScreen: HomeScreen = .home
     @Binding var showOnboarding: Bool
+    @State private var showingSettings = false // State to control the sheet presentation
 
 
     var body: some View {
@@ -313,7 +398,8 @@ struct HomeView: View {
                 case .blocks:
                     BlocksView
                 case .profile:
-                    ProfileView
+                    BlocksView
+//                    ProfileView
                 }
             }
         }
@@ -358,26 +444,37 @@ struct HomeView: View {
         }
        }
 
-    var ProfileView: some View {
-        ReusableHomeView(
-            screenIdx: 2,
-
-            currentScreen: $currentScreen,
-            topText: "Add your friends to see their screen time",
-            subTopText: "Profile your screen time was bad?", skippable: false,
-            buttonText: "New Block",
-            //               buttonAction: {
-            //                   print("Contacts -> Add Friends button pressed")
-            //                   currentScreen = .secrets
-            //               },
-            alignLeft: true
-        ){
-            // Placeholder for [Graphic of friends]
-            Text("[Graphic of friends Content]")
-        }
-       }
+//    var ProfileView: some View {
+       
+//        ReusableHomeView(
+//            screenIdx: 2,
+//
+//            currentScreen: $currentScreen,
+//            topText: "Add your friends to see their screen time",
+//            subTopText: "Profile your screen time was bad?", skippable: false,
+//            buttonText: "New Block",
+//            //               buttonAction: {
+//            //                   print("Contacts -> Add Friends button pressed")
+//            //                   currentScreen = .secrets
+//            //               },
+//            alignLeft: true
+//        ){
+//            // Placeholder for [Graphic of friends]
+//            Text("[Graphic of friends Content]")
+//        }
+//       }
 
 
     // Add other views for different screens
-}
+//}
 
+//    @Environment(\.dismiss) var dismiss // For dismissing the sheet
+//
+//    var body: some View {
+//        NavigationView {
+//            List {
+
+                
+
+   
+}

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		56808609B7CD7696115C2583 /* Pods_TalIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A42575D767F74561C7F671E /* Pods_TalIOS.framework */; };
+		6D97F0171C8C9EC8CFC525C3 /* Pods_TalIOS_TalIOSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F349F4FDB82F5A330D7EEE67 /* Pods_TalIOS_TalIOSUITests.framework */; };
+		8D66E2547C06C55B6D564D4C /* Pods_TalIOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADCD6B50382DDCCEA6B255BF /* Pods_TalIOSTests.framework */; };
 		984CC7542B9AE5BE00F34353 /* SurveyGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984CC7532B9AE5BE00F34353 /* SurveyGroup.swift */; };
 		984F15742B9A080200D593D1 /* authLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984F15732B9A080200D593D1 /* authLogin.swift */; };
 		984F15762B9A8B1C00D593D1 /* OnboardingLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984F15752B9A8B1C00D593D1 /* OnboardingLayout.swift */; };
@@ -17,6 +20,13 @@
 		985349422BA13AF100F92E76 /* SecretGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985349412BA13AF000F92E76 /* SecretGroup.swift */; };
 		985349442BA13D8B00F92E76 /* AppSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985349432BA13D8B00F92E76 /* AppSelection.swift */; };
 		985349472BA153A800F92E76 /* NewBlockSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985349462BA153A800F92E76 /* NewBlockSheet.swift */; };
+		98813FAF2BABCEFE00868429 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98813FAE2BABCEFE00868429 /* DataController.swift */; };
+		98813FB42BABD7E700868429 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 98813FB32BABD7E700868429 /* FirebaseFirestoreSwift */; };
+		98813FB62BABD8CA00868429 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 98813FB52BABD8CA00868429 /* FirebaseFirestore */; };
+		98813FB82BABD8CA00868429 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 98813FB72BABD8CA00868429 /* FirebaseFirestoreSwift */; };
+		98813FBA2BABD94A00868429 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 98813FB92BABD94A00868429 /* FirebaseAuth */; };
+		98813FBC2BABD95000868429 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 98813FBB2BABD95000868429 /* GoogleSignIn */; };
+		98813FBE2BABD95000868429 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 98813FBD2BABD95000868429 /* GoogleSignInSwift */; };
 		98A6C2832B993C1C00151C1C /* TalIOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98A6C2822B993C1C00151C1C /* TalIOSApp.swift */; };
 		98A6C2852B993C1C00151C1C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98A6C2842B993C1C00151C1C /* ContentView.swift */; };
 		98A6C2872B993C1E00151C1C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 98A6C2862B993C1E00151C1C /* Assets.xcassets */; };
@@ -30,6 +40,14 @@
 		98D8C8162BA66D2800F047AF /* Screens.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98D8C8152BA66D2800F047AF /* Screens.swift */; };
 		98D8C8182BA68CEF00F047AF /* AppBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98D8C8172BA68CEF00F047AF /* AppBlock.swift */; };
 		98DB7FD72B9ACA21009B1426 /* FormComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98DB7FD62B9ACA21009B1426 /* FormComponents.swift */; };
+		98E4DD8B2BAB888500434A27 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 98E4DD8A2BAB888500434A27 /* FirebaseAnalytics */; };
+		98E4DD8E2BAB8AB100434A27 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 98E4DD8D2BAB8AB100434A27 /* FirebaseAuth */; };
+		98E4DD942BAB951E00434A27 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 98E4DD932BAB951E00434A27 /* GoogleService-Info.plist */; };
+		98E4DD952BAB951E00434A27 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 98E4DD932BAB951E00434A27 /* GoogleService-Info.plist */; };
+		98E4DD962BAB951E00434A27 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 98E4DD932BAB951E00434A27 /* GoogleService-Info.plist */; };
+		98E4DD992BAB9B4400434A27 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 98E4DD982BAB9B4400434A27 /* GoogleSignIn */; };
+		98E4DD9B2BABC5B600434A27 /* AppleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E4DD9A2BABC5B600434A27 /* AppleManager.swift */; };
+		98E4DD9D2BABCAA500434A27 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 98E4DD9C2BABCAA500434A27 /* FirebaseFirestore */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +68,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2A7E815FE4424614E2B7EFA6 /* Pods-TalIOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TalIOSTests.debug.xcconfig"; path = "Target Support Files/Pods-TalIOSTests/Pods-TalIOSTests.debug.xcconfig"; sourceTree = "<group>"; };
+		7435166C8B282DF83A743E1E /* Pods-TalIOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TalIOS.release.xcconfig"; path = "Target Support Files/Pods-TalIOS/Pods-TalIOS.release.xcconfig"; sourceTree = "<group>"; };
+		8A42575D767F74561C7F671E /* Pods_TalIOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TalIOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		984CC7532B9AE5BE00F34353 /* SurveyGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyGroup.swift; sourceTree = "<group>"; };
 		984F15732B9A080200D593D1 /* authLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = authLogin.swift; sourceTree = "<group>"; };
 		984F15752B9A8B1C00D593D1 /* OnboardingLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingLayout.swift; sourceTree = "<group>"; };
@@ -62,6 +83,7 @@
 		985349432BA13D8B00F92E76 /* AppSelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSelection.swift; sourceTree = "<group>"; };
 		985349462BA153A800F92E76 /* NewBlockSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBlockSheet.swift; sourceTree = "<group>"; };
 		985349482BA2417300F92E76 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		98813FAE2BABCEFE00868429 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		98A6C27F2B993C1C00151C1C /* TalIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TalIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		98A6C2822B993C1C00151C1C /* TalIOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalIOSApp.swift; sourceTree = "<group>"; };
 		98A6C2842B993C1C00151C1C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -78,6 +100,14 @@
 		98D8C8152BA66D2800F047AF /* Screens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Screens.swift; sourceTree = "<group>"; };
 		98D8C8172BA68CEF00F047AF /* AppBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppBlock.swift; sourceTree = "<group>"; };
 		98DB7FD62B9ACA21009B1426 /* FormComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormComponents.swift; sourceTree = "<group>"; };
+		98E4DD932BAB951E00434A27 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Documents/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		98E4DD9A2BABC5B600434A27 /* AppleManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleManager.swift; sourceTree = "<group>"; };
+		A9DA98F5F0C8754DEA11FCE0 /* Pods-TalIOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TalIOSTests.release.xcconfig"; path = "Target Support Files/Pods-TalIOSTests/Pods-TalIOSTests.release.xcconfig"; sourceTree = "<group>"; };
+		ADCD6B50382DDCCEA6B255BF /* Pods_TalIOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TalIOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D20D2B0F2629D3CCE80CA744 /* Pods-TalIOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TalIOS.debug.xcconfig"; path = "Target Support Files/Pods-TalIOS/Pods-TalIOS.debug.xcconfig"; sourceTree = "<group>"; };
+		D81E355A03A5EED24CE5A109 /* Pods-TalIOS-TalIOSUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TalIOS-TalIOSUITests.debug.xcconfig"; path = "Target Support Files/Pods-TalIOS-TalIOSUITests/Pods-TalIOS-TalIOSUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		D822018006F3B655B09C66EE /* Pods-TalIOS-TalIOSUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TalIOS-TalIOSUITests.release.xcconfig"; path = "Target Support Files/Pods-TalIOS-TalIOSUITests/Pods-TalIOS-TalIOSUITests.release.xcconfig"; sourceTree = "<group>"; };
+		F349F4FDB82F5A330D7EEE67 /* Pods_TalIOS_TalIOSUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TalIOS_TalIOSUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +115,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				98E4DD8B2BAB888500434A27 /* FirebaseAnalytics in Frameworks */,
+				98E4DD992BAB9B4400434A27 /* GoogleSignIn in Frameworks */,
+				98E4DD8E2BAB8AB100434A27 /* FirebaseAuth in Frameworks */,
+				98E4DD9D2BABCAA500434A27 /* FirebaseFirestore in Frameworks */,
+				56808609B7CD7696115C2583 /* Pods_TalIOS.framework in Frameworks */,
+				98813FB42BABD7E700868429 /* FirebaseFirestoreSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -92,6 +128,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				98813FBC2BABD95000868429 /* GoogleSignIn in Frameworks */,
+				8D66E2547C06C55B6D564D4C /* Pods_TalIOSTests.framework in Frameworks */,
+				98813FB62BABD8CA00868429 /* FirebaseFirestore in Frameworks */,
+				98813FBE2BABD95000868429 /* GoogleSignInSwift in Frameworks */,
+				98813FB82BABD8CA00868429 /* FirebaseFirestoreSwift in Frameworks */,
+				98813FBA2BABD94A00868429 /* FirebaseAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,6 +141,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6D97F0171C8C9EC8CFC525C3 /* Pods_TalIOS_TalIOSUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -113,6 +156,7 @@
 				984CC7532B9AE5BE00F34353 /* SurveyGroup.swift */,
 				9852FCAC2B9ED24000A5AB0E /* ContactsGroup.swift */,
 				985349432BA13D8B00F92E76 /* AppSelection.swift */,
+				98E4DD9A2BABC5B600434A27 /* AppleManager.swift */,
 			);
 			path = OnboardingGroups;
 			sourceTree = "<group>";
@@ -121,6 +165,7 @@
 			isa = PBXGroup;
 			children = (
 				984F157C2B9AB43500D593D1 /* LoginViewController.swift */,
+				98813FAE2BABCEFE00868429 /* DataController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -140,6 +185,8 @@
 				98A6C2972B993C1E00151C1C /* TalIOSTests */,
 				98A6C2A12B993C1E00151C1C /* TalIOSUITests */,
 				98A6C2802B993C1C00151C1C /* Products */,
+				98E4DD8C2BAB8AB100434A27 /* Frameworks */,
+				C69B063EC27B6C1A344F45C4 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -156,6 +203,7 @@
 		98A6C2812B993C1C00151C1C /* TalIOS */ = {
 			isa = PBXGroup;
 			children = (
+				98E4DD932BAB951E00434A27 /* GoogleService-Info.plist */,
 				98D8C8122BA6687F00F047AF /* Shields */,
 				985349482BA2417300F92E76 /* Info.plist */,
 				985349452BA1538F00F92E76 /* NewLimits */,
@@ -235,6 +283,29 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
+		98E4DD8C2BAB8AB100434A27 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8A42575D767F74561C7F671E /* Pods_TalIOS.framework */,
+				F349F4FDB82F5A330D7EEE67 /* Pods_TalIOS_TalIOSUITests.framework */,
+				ADCD6B50382DDCCEA6B255BF /* Pods_TalIOSTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C69B063EC27B6C1A344F45C4 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D20D2B0F2629D3CCE80CA744 /* Pods-TalIOS.debug.xcconfig */,
+				7435166C8B282DF83A743E1E /* Pods-TalIOS.release.xcconfig */,
+				D81E355A03A5EED24CE5A109 /* Pods-TalIOS-TalIOSUITests.debug.xcconfig */,
+				D822018006F3B655B09C66EE /* Pods-TalIOS-TalIOSUITests.release.xcconfig */,
+				2A7E815FE4424614E2B7EFA6 /* Pods-TalIOSTests.debug.xcconfig */,
+				A9DA98F5F0C8754DEA11FCE0 /* Pods-TalIOSTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -242,6 +313,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 98A6C2A82B993C1E00151C1C /* Build configuration list for PBXNativeTarget "TalIOS" */;
 			buildPhases = (
+				683196C145CABB29576D8CB6 /* [CP] Check Pods Manifest.lock */,
 				98A6C27B2B993C1C00151C1C /* Sources */,
 				98A6C27C2B993C1C00151C1C /* Frameworks */,
 				98A6C27D2B993C1C00151C1C /* Resources */,
@@ -251,6 +323,13 @@
 			dependencies = (
 			);
 			name = TalIOS;
+			packageProductDependencies = (
+				98E4DD8A2BAB888500434A27 /* FirebaseAnalytics */,
+				98E4DD8D2BAB8AB100434A27 /* FirebaseAuth */,
+				98E4DD982BAB9B4400434A27 /* GoogleSignIn */,
+				98E4DD9C2BABCAA500434A27 /* FirebaseFirestore */,
+				98813FB32BABD7E700868429 /* FirebaseFirestoreSwift */,
+			);
 			productName = TalIOS;
 			productReference = 98A6C27F2B993C1C00151C1C /* TalIOS.app */;
 			productType = "com.apple.product-type.application";
@@ -259,6 +338,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 98A6C2AB2B993C1E00151C1C /* Build configuration list for PBXNativeTarget "TalIOSTests" */;
 			buildPhases = (
+				60F463DA84DF06E1885817C9 /* [CP] Check Pods Manifest.lock */,
 				98A6C2902B993C1E00151C1C /* Sources */,
 				98A6C2912B993C1E00151C1C /* Frameworks */,
 				98A6C2922B993C1E00151C1C /* Resources */,
@@ -269,6 +349,13 @@
 				98A6C2962B993C1E00151C1C /* PBXTargetDependency */,
 			);
 			name = TalIOSTests;
+			packageProductDependencies = (
+				98813FB52BABD8CA00868429 /* FirebaseFirestore */,
+				98813FB72BABD8CA00868429 /* FirebaseFirestoreSwift */,
+				98813FB92BABD94A00868429 /* FirebaseAuth */,
+				98813FBB2BABD95000868429 /* GoogleSignIn */,
+				98813FBD2BABD95000868429 /* GoogleSignInSwift */,
+			);
 			productName = TalIOSTests;
 			productReference = 98A6C2942B993C1E00151C1C /* TalIOSTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -277,6 +364,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 98A6C2AE2B993C1E00151C1C /* Build configuration list for PBXNativeTarget "TalIOSUITests" */;
 			buildPhases = (
+				CAF18CA499A5DB4DB2B942EC /* [CP] Check Pods Manifest.lock */,
 				98A6C29A2B993C1E00151C1C /* Sources */,
 				98A6C29B2B993C1E00151C1C /* Frameworks */,
 				98A6C29C2B993C1E00151C1C /* Resources */,
@@ -323,6 +411,10 @@
 				Base,
 			);
 			mainGroup = 98A6C2762B993C1C00151C1C;
+			packageReferences = (
+				98E4DD892BAB888500434A27 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				98E4DD972BAB9B4400434A27 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
+			);
 			productRefGroup = 98A6C2802B993C1C00151C1C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -341,6 +433,7 @@
 			files = (
 				98A6C28A2B993C1E00151C1C /* Preview Assets.xcassets in Resources */,
 				98A6C2872B993C1E00151C1C /* Assets.xcassets in Resources */,
+				98E4DD942BAB951E00434A27 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -348,6 +441,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				98E4DD952BAB951E00434A27 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -355,10 +449,80 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				98E4DD962BAB951E00434A27 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		60F463DA84DF06E1885817C9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TalIOSTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		683196C145CABB29576D8CB6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TalIOS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CAF18CA499A5DB4DB2B942EC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TalIOS-TalIOSUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		98A6C27B2B993C1C00151C1C /* Sources */ = {
@@ -370,12 +534,14 @@
 				9852FCAD2B9ED24000A5AB0E /* ContactsGroup.swift in Sources */,
 				984F15742B9A080200D593D1 /* authLogin.swift in Sources */,
 				984F157A2B9A9D0000D593D1 /* AuthGroup.swift in Sources */,
+				98813FAF2BABCEFE00868429 /* DataController.swift in Sources */,
 				984F15762B9A8B1C00D593D1 /* OnboardingLayout.swift in Sources */,
 				98D8C8162BA66D2800F047AF /* Screens.swift in Sources */,
 				98D8C8182BA68CEF00F047AF /* AppBlock.swift in Sources */,
 				984F157D2B9AB43500D593D1 /* LoginViewController.swift in Sources */,
 				98DB7FD72B9ACA21009B1426 /* FormComponents.swift in Sources */,
 				98A6C2852B993C1C00151C1C /* ContentView.swift in Sources */,
+				98E4DD9B2BABC5B600434A27 /* AppleManager.swift in Sources */,
 				98A6C2832B993C1C00151C1C /* TalIOSApp.swift in Sources */,
 				98A6C28F2B993C1E00151C1C /* TalIOS.xcdatamodeld in Sources */,
 				98D8C8142BA6688C00F047AF /* Extensions.swift in Sources */,
@@ -535,6 +701,7 @@
 		};
 		98A6C2A92B993C1E00151C1C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D20D2B0F2629D3CCE80CA744 /* Pods-TalIOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -571,6 +738,7 @@
 		};
 		98A6C2AA2B993C1E00151C1C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7435166C8B282DF83A743E1E /* Pods-TalIOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -607,6 +775,7 @@
 		};
 		98A6C2AC2B993C1E00151C1C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2A7E815FE4424614E2B7EFA6 /* Pods-TalIOSTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -627,6 +796,7 @@
 		};
 		98A6C2AD2B993C1E00151C1C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A9DA98F5F0C8754DEA11FCE0 /* Pods-TalIOSTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -647,6 +817,7 @@
 		};
 		98A6C2AF2B993C1E00151C1C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D81E355A03A5EED24CE5A109 /* Pods-TalIOS-TalIOSUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -665,6 +836,7 @@
 		};
 		98A6C2B02B993C1E00151C1C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D822018006F3B655B09C66EE /* Pods-TalIOS-TalIOSUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -721,6 +893,78 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		98E4DD892BAB888500434A27 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.0.0;
+			};
+		};
+		98E4DD972BAB9B4400434A27 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/google/GoogleSignIn-iOS";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		98813FB32BABD7E700868429 /* FirebaseFirestoreSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 98E4DD892BAB888500434A27 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestoreSwift;
+		};
+		98813FB52BABD8CA00868429 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 98E4DD892BAB888500434A27 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		98813FB72BABD8CA00868429 /* FirebaseFirestoreSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 98E4DD892BAB888500434A27 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestoreSwift;
+		};
+		98813FB92BABD94A00868429 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 98E4DD892BAB888500434A27 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		98813FBB2BABD95000868429 /* GoogleSignIn */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 98E4DD972BAB9B4400434A27 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignIn;
+		};
+		98813FBD2BABD95000868429 /* GoogleSignInSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 98E4DD972BAB9B4400434A27 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignInSwift;
+		};
+		98E4DD8A2BAB888500434A27 /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 98E4DD892BAB888500434A27 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		98E4DD8D2BAB8AB100434A27 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 98E4DD892BAB888500434A27 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		98E4DD982BAB9B4400434A27 /* GoogleSignIn */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 98E4DD972BAB9B4400434A27 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignIn;
+		};
+		98E4DD9C2BABCAA500434A27 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 98E4DD892BAB888500434A27 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		98A6C28D2B993C1E00151C1C /* TalIOS.xcdatamodeld */ = {

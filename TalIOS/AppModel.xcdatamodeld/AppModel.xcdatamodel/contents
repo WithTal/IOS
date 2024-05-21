@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21754" systemVersion="22F82" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="AppApp" representedClassName=".AppApp" syncable="YES" codeGenerationType="class">
+        <attribute name="bundleId" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="parent" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="AppGroup" inverseName="apps" inverseEntity="AppGroup"/>
+    </entity>
+    <entity name="AppGroup" representedClassName=".AppGroup" syncable="YES" codeGenerationType="class">
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="apps" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="AppApp" inverseName="parent" inverseEntity="AppApp"/>
+        <relationship name="settings" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="AppGroupSettings" inverseName="appGroup" inverseEntity="AppGroupSettings"/>
+    </entity>
+    <entity name="AppGroupSettings" representedClassName=".AppGroupSettings" syncable="YES" codeGenerationType="class">
+        <attribute name="difficultyLevel" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="maximumPickups" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="schedule" optional="YES" attributeType="String"/>
+        <attribute name="type" optional="YES" attributeType="String"/>
+        <relationship name="appGroup" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="AppGroup" inverseName="settings" inverseEntity="AppGroup"/>
+    </entity>
+</model>

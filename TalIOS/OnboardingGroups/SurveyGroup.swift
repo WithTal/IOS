@@ -8,15 +8,32 @@
 import Foundation
 import SwiftUI
 import FamilyControls
+import FirebaseFirestore
 
+import Firebase
+import FirebaseAuth
 
 
 struct shortSurveyView: View {
     @Binding var currentScreen: AppScreen
     @State private var questionIndex = 0
-    
-    
+    @State private var surveyResponse = SurveyResponse(addiction: "", hobby: "", profession: "", referral: "")
 
+    
+    struct SurveyResponse {
+        var addiction: String
+        var hobby: String
+        var profession: String
+        var referral: String
+    }
+
+//
+//
+//    struct SurveyResponse {
+//        var answers: [String]
+//    }
+
+    
     // Define your questions and options
     let questions = [
         "How many hours are you on your phone a day",
@@ -52,16 +69,11 @@ struct shortSurveyView: View {
             
             // Display options as buttons
             ForEach(options[questionIndex], id: \.self) { option in
-                
-                
                 Button(action: {
-                    // Handle selection
-                    goToNextQuestion()
+                    goToNextQuestion(selectedOption: option)
                 }) {
                     Text(option)
                         .frame(maxWidth: .infinity) // Make the Text fill the button's frame
-                    
-                    
                 }
                 .padding()
                 .frame(maxWidth: .infinity)
@@ -69,9 +81,10 @@ struct shortSurveyView: View {
                 .foregroundColor(.white)
                 .cornerRadius(10)
                 .padding(.horizontal)
-                
-                
             }
+
+            
+            
             
             Spacer()
             
@@ -85,15 +98,50 @@ struct shortSurveyView: View {
         .padding()
     }
     
-    // Function to go to the next question or end the survey
-    func goToNextQuestion() {
+    func goToNextQuestion(selectedOption: String) {
+        switch questionIndex {
+        case 0:
+            surveyResponse.addiction = selectedOption
+        case 1:
+            surveyResponse.hobby = selectedOption
+        case 2:
+            surveyResponse.profession = selectedOption
+        case 3:
+            surveyResponse.referral = selectedOption
+        default:
+            break
+        }
+        
         if questionIndex < questions.count - 1 {
             questionIndex += 1
         } else {
-            // End the survey, go to contacts or results page
-            currentScreen = .contacts
+            // End the survey, save to Firestore, and go to contacts or results page
+            saveSurveyData()
         }
     }
+
+        func saveSurveyData() {
+            guard let userID = Auth.auth().currentUser?.uid else {
+                print("User not authenticated")
+                return
+            }
+            let db = Firestore.firestore()
+            
+            db.collection("userdetails").document(userID).collection("userSurvey").addDocument(data: [
+                "addiction": surveyResponse.addiction,
+                "hobby": surveyResponse.hobby,
+                "profession": surveyResponse.profession,
+                "referral": surveyResponse.referral
+            ]) { error in
+                if let error = error {
+                    print("Error writing document: \(error)")
+                } else {
+                    print("Document successfully written!")
+                    currentScreen = .contacts
+                }
+            }
+        }
+
 }
 
 

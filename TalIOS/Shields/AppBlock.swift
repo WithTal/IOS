@@ -73,13 +73,6 @@ struct NewBlockView: View {
                     }
 
 
-                    // "For Now" specific settings
-                    // Potentially different settings that apply for immediate usage
-//                    NavigationLink(destination: SelectAppsView(selectedApps: $selectedApps)) {
-//                        SettingRow(title: "Difficulty", value: selectedApps.isEmpty ? "Select" : "\(selectedApps.count) Apps")
-//                    }
-                    // Here you would have different settings or a different layout for the "For Now" mode
-                    // For example, you might want to set a temporary unlock without a stepper
                     
                 }
 

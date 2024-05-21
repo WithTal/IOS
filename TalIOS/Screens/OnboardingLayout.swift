@@ -141,7 +141,7 @@ enum AppScreen {
 //    case contacts
     case initialApps
         
-    case initialApps2
+//    case initialApps2
         
     
     case initialApps3
@@ -199,8 +199,8 @@ struct OnboardingView: View {
                     
                 case .initialApps:
                     initialAppsView
-                case .initialApps2:
-                    initialApps2View(currentScreen: $currentScreen)
+//                case .initialApps2:
+//                    initialApps2View(currentScreen: $currentScreen)
                 case .initialApps3:
                     initialApps3View
                     
@@ -243,7 +243,7 @@ struct OnboardingView: View {
                buttonText: "Select Apps",
                buttonAction: {
                    print("Initial Apps -> Next button pressed")
-                   currentScreen = .initialApps2
+                   currentScreen = .explanationOfBlocks
                },
                alignLeft: true
            ) {

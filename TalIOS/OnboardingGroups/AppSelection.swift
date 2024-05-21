@@ -11,7 +11,7 @@ import SwiftUI
 import FamilyControls
 
 //var initialApps2View: some View {
-//
+
 //    // Since the prompt states NA, you may not need an action or button here, assuming this is a transitional view
 ////    Text("The swift selection interface Content")
 ////        .onAppear {
@@ -22,13 +22,14 @@ import FamilyControls
 //////                   }
 ////        }
 //}
+//
 
 
 
-
-    
+//    
 struct initialApps2View: View {
     @State var selection = FamilyActivitySelection()
+//    @StateObject private var dataController = DataController()
 
     @Binding var currentScreen: AppScreen
 
@@ -62,10 +63,12 @@ struct initialApps2View: View {
 //                Text("Next").padding([.trailing])
 //                    .foregroundColor(.blue)
 //            }
+            .familyActivityPicker(isPresented: $isDiscouragedPresented, selection: $model.selectionToDiscourage)
+            
 //            .familyActivityPicker(isPresented: $isDiscouragedPresented, selection: $model.selectionToDiscourage)
 
 
-            FamilyActivityPicker(selection:  $model.selectionToDiscourage)
+//            FamilyActivityPicker(selection:  $model.selectionToDiscourage)
             
             
             //            Image(systemName: "hourglass")
@@ -76,10 +79,10 @@ struct initialApps2View: View {
         .foregroundColor(.white) // Set the default text color to white inside the VStack
         .padding(.vertical, 20) // This adds vertical padding to the top and bottom inside the VStack
         //        .padding(.horizontal, 20)
-        .onChange(of: model.selectionToDiscourage) { newSelection in
-            MyModel.shared.setShieldRestrictions()
-        }
-    
+//        .onChange(of: model.selectionToDiscourage) { newSelection in
+//            MyModel.shared.setShieldRestrictions()
+//        } TODO Fix shit shit
+//
 
 //        .onChange(of: selection) { newSelection in
 //            let applications = selection.applications

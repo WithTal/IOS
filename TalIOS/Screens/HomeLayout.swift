@@ -15,6 +15,7 @@ import Foundation
 
 import Foundation
 
+import FirebaseAuth
 import SwiftUI
 
 struct ReusableHomeView2<Content: View>: View {
@@ -306,26 +307,67 @@ struct BottomNavigationTabs: View {
       }
     }
 }
+
+import SwiftUI
+import StoreKit
+
 struct DraftSettingsView: View {
     @Environment(\.dismiss) var dismiss // For dismissing the sheet
     
     
+    func logout() {
+        do {
+            try Auth.auth().signOut()
+            print("SIGN OUT")
+            // Update the application state to reflect that the user has logged out
+            // For example, you can set a boolean value or use an observable object to communicate this change
+            // If using a navigation flow, you might navigate back to the login screen
+        } catch let signOutError as NSError {
+            print("Error signing out: %@", signOutError)
+            // Handle the error, perhaps by showing an alert to the user
+        }
+        
+    }
+    
+    func giftFreeSubscription() {
+           // Implement the functionality to gift a subscription
+
+           // Requesting an App Store review
+           if let windowScene = UIApplication.shared.windows.first?.windowScene {
+               SKStoreReviewController.requestReview(in: windowScene)
+           }
+       }
+
     var body: some View {
+        
         NavigationView {
             List {
                 Section(header: Text("Subscription")) {
                     HStack {
-                        Text("Free Plan")
+                        Text("Like us?")
                         Spacer()
-                        Button("Subscribe to Pro") {
+                        Button("Review on App Store!") {
+                            giftFreeSubscription()
+
                             // Action for Subscribe to Pro
                         }
                         .buttonStyle(.borderedProminent)
                     }
-                    Button("Gift Free Subscription") {
-                        // Action for Gift Free Subscription
-                    }
+                   
                 }
+//                Section(header: Text("Subscription")) {
+//                    HStack {
+//                        Text("Free Plan")
+//                        Spacer()
+//                        Button("Subscribe to Pro") {
+//                            // Action for Subscribe to Pro
+//                        }
+//                        .buttonStyle(.borderedProminent)
+//                    }
+//                    Button("Gift Free Subscription") {
+//                        // Action for Gift Free Subscription
+//                    }
+//                }
                 
                 Section(header: Text("Account")) {
                     NavigationLink(destination: Text("Profile Photo")) {
@@ -334,15 +376,7 @@ struct DraftSettingsView: View {
                             Text("Profile Photo")
                         }
                     }
-                    NavigationLink(destination: Text("Gem Name")) {
-                        HStack {
-                            Image(systemName: "gem")
-                            Text("Gem Name")
-                            Spacer()
-                            Text("CoralPargarsite600")
-                                .foregroundColor(.gray)
-                        }
-                    }
+                    
                     NavigationLink(destination: Text("Email")) {
                         HStack {
                             Image(systemName: "envelope")
@@ -352,7 +386,7 @@ struct DraftSettingsView: View {
                                 .foregroundColor(.gray)
                         }
                     }
-                    // ... other account options
+                    
                 }
                 
                 Section(header: Text("Preferences")) {
@@ -399,7 +433,6 @@ struct HomeView: View {
                     BlocksView
                 case .profile:
                     BlocksView
-//                    ProfileView
                 }
             }
         }

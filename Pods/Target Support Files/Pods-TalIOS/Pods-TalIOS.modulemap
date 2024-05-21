@@ -1,0 +1,6 @@
+framework module Pods_TalIOS {
+  umbrella header "Pods-TalIOS-umbrella.h"
+
+  export *
+  module * { export * }
+}
